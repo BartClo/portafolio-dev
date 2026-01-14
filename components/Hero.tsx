@@ -13,19 +13,16 @@ export const Hero = () => {
                 <div className="flex flex-col items-start space-y-6">
                     <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-zinc-700 shadow-2xl mb-4">
                         {/* PLACEHOLDER: Replace src with your profile image */}
-                        <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-500">
-                            <span className="text-xs text-center p-2">Foto de <br /> Perfil</span>
-                        </div>
-                        {/* <Image src="/profile.jpg" alt="Profile" fill className="object-cover" /> */}
+                        <Image src="/images/formal.jpg" alt="Marcelo Muñoz" fill className="object-cover" />
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-                        Hola, soy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">[Tu Nombre]</span>
+                        Hola, soy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">[Marcelo Muñoz]</span>
                     </h1>
 
                     <h2 className="text-xl md:text-2xl text-zinc-400 font-medium">
-                        Ingeniero de Software en formación <br />
-                        <span className="text-zinc-500">Especializado en Arquitectura Backend y Soluciones Reales</span>
+                        Ingeniero Civil Informático en formación <br />
+                        <span className="text-zinc-500">Enfoque en arquitectura de software, datos y soluciones reales</span>
                     </h2>
 
                     <p className="max-w-lg text-zinc-400 leading-relaxed">
