@@ -3,17 +3,17 @@ import Image from "next/image";
 
 export const Hero = () => {
     return (
-        <section className="min-h-screen w-full flex flex-col items-center justify-center bg-zinc-950 relative overflow-hidden pt-20 pb-20 px-4 md:px-10">
+        <section className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden pt-20 pb-20 px-4 md:px-10">
 
             {/* Backgroud Effect */}
-            <div className="absolute inset-0 w-full h-full bg-zinc-950 radial-gradient-bg pointer-events-none" />
+            <div className="absolute inset-0 w-full h-full radial-gradient-bg pointer-events-none" />
 
             <div className="max-w-7xl w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Side: Static Content */}
                 <div className="flex flex-col items-start space-y-6">
                     <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-zinc-700 shadow-2xl mb-4">
                         {/* PLACEHOLDER: Replace src with your profile image */}
-                        <Image src="/images/formal.jpg" alt="Marcelo Muñoz" fill className="object-cover" />
+                        <Image src="/images/formal_hap.jpg" alt="Marcelo Muñoz" fill className="object-cover" />
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">

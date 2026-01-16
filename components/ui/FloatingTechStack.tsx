@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface TechItem {
@@ -22,8 +22,8 @@ const techStackData: TechItem[] = [
 
 export const FloatingTechStack = () => {
     return (
-        <div className="relative h-96 w-full flex items-center justify-center perspective-1000">
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
+        <div className="relative h-96 w-full flex items-center justify-center">
+            <div className="grid grid-cols-2 gap-6 md:gap-8 perspective-1000">
                 {techStackData.map((item, index) => (
                     <FloatingCard key={item.id} item={item} index={index} />
                 ))}
@@ -33,41 +33,94 @@ export const FloatingTechStack = () => {
 };
 
 const FloatingCard = ({ item, index }: { item: TechItem; index: number }) => {
+    const ref = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
+
+    // Motion values for tilt effect
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    // Smooth spring animation for the tilt
+    const mouseX = useSpring(x, { stiffness: 300, damping: 30 });
+    const mouseY = useSpring(y, { stiffness: 300, damping: 30 });
+
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], ["15deg", "-15deg"]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+
+        const rect = ref.current.getBoundingClientRect();
+
+        const width = rect.width;
+        const height = rect.height;
+
+        const mouseXPos = e.clientX - rect.left;
+        const mouseYPos = e.clientY - rect.top;
+
+        const xPct = mouseXPos / width - 0.5;
+        const yPct = mouseYPos / height - 0.5;
+
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        x.set(0);
+        y.set(0);
+    };
 
     return (
         <motion.div
+            ref={ref}
             initial={{ opacity: 0, y: 20 }}
             animate={{
                 opacity: 1,
-                y: [0, -10, 0],
-                rotateX: [0, 5, 0],
-                rotateY: [0, 5, 0]
+                y: 0,
+            }}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
             }}
             transition={{
-                duration: 4,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "reverse",
-                delay: index * 0.2,
+                duration: 0.5,
+                delay: index * 0.1,
             }}
-            whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.2 } }}
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={handleMouseLeave}
             className={cn(
-                "relative w-32 h-32 md:w-40 md:h-40 bg-zinc-900/50 backdrop-blur-md border border-zinc-700/50 rounded-xl flex flex-col items-center justify-center p-4 cursor-pointer shadow-lg group hover:shadow-cyan-500/20 transition-all duration-300",
-                isHovered && "border-cyan-500/50"
+                "relative w-32 h-32 md:w-40 md:h-40 bg-zinc-900/40 backdrop-blur-md border border-zinc-700/50 rounded-xl flex flex-col items-center justify-center p-4 cursor-pointer transition-all duration-300 ease-out",
+                isHovered ? "shadow-2xl shadow-cyan-500/20 z-50 scale-105 border-cyan-500/50" : "shadow-lg hover:shadow-xl"
             )}
         >
-            <div className="text-4xl mb-2">{item.icon}</div>
-            <div className="text-sm font-bold text-zinc-100">{item.name}</div>
+            <div
+                style={{ transform: "translateZ(50px)" }}
+                className="flex flex-col items-center justify-center"
+            >
+                <div className="text-4xl mb-2 drop-shadow-lg">{item.icon}</div>
+                <div className="text-sm font-bold text-zinc-100/90 tracking-wide">{item.name}</div>
+            </div>
+
+            {/* Glowing effect behind */}
+            <div
+                className={cn(
+                    "absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 bg-gradient-to-br from-cyan-500/10 to-blue-600/10",
+                    isHovered && "opacity-100"
+                )}
+            />
 
             {isHovered && (
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-48 bg-black/90 text-xs p-2 rounded text-center border border-zinc-800 z-50 pointer-events-none"
+                    initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    style={{ transform: "translateZ(75px)" }}
+                    className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-48 bg-black/90 text-xs p-3 rounded-lg text-center border border-zinc-800 shadow-xl pointer-events-none"
                 >
+                    <span className="text-cyan-400 font-semibold block mb-1">Info:</span>
                     {item.description}
                 </motion.div>
             )}

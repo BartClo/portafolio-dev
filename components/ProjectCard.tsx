@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
@@ -10,19 +11,39 @@ interface ProjectCardProps {
     imageUrl?: string;
     githubUrl?: string;
     demoUrl?: string;
+    isHovered?: boolean;
+    isDimmed?: boolean;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
-export const ProjectCard = ({ title, description, tags, imageUrl, githubUrl, demoUrl }: ProjectCardProps) => {
+export const ProjectCard = ({
+    title,
+    description,
+    tags,
+    imageUrl,
+    githubUrl,
+    demoUrl,
+    isHovered,
+    isDimmed,
+    onMouseEnter,
+    onMouseLeave
+}: ProjectCardProps) => {
     return (
         <motion.div
             className="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-colors flex flex-col h-full"
-            whileHover={{ y: -5 }}
+            animate={{
+                scale: isHovered ? 1.05 : isDimmed ? 0.95 : 1,
+                opacity: isDimmed ? 0.5 : 1
+            }}
+            transition={{ duration: 0.3 }}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
         >
             {/* Image Placeholder */}
             <div className="w-full h-48 bg-zinc-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                 {imageUrl ? (
-                    // <Image src={imageUrl} alt={title} fill className="object-cover" />
-                    <div className="absolute inset-0 flex items-center justify-center text-zinc-500">Image: {title}</div>
+                    <Image src={imageUrl} alt={title} fill className="object-cover" />
                 ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-zinc-600 bg-zinc-800/50">
                         <span className="text-4xl opacity-20">Preview</span>
