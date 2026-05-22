@@ -11,25 +11,22 @@ export const Projects = () => {
 
     const projects = [
         {
-            title: "Sistema de Gestión LIMS",
-            description: "Arquitectura backend escalable en Azure para gestión de laboratorios, manejando miles de muestras diarias con alta disponibilidad.",
-            tags: ["Django", "React", "PostgreSQL", "Azure"],
-            githubUrl: "#",
-            demoUrl: "#"
-        },
-        {
-            title: "Cooperativa de Agua API",
-            description: "API RESTful para la gestión de consumo y facturación de agua potable rural. Integración con sistemas de pago.",
-            tags: ["FastAPI", "Docker", "Redis", "Celery"],
+            title: "PulseTrack — Pipeline ETL de Datos Clínicos",
+            description: "Pipeline automatizado de extracción ETL sobre imágenes no estructuradas de tensiómetros. Transforma fotografías en registros clínicos estructurados (SYS, DIA, PUL) mediante reconocimiento óptico de caracteres con algoritmos de parseo multicapa y corrección de ruido.",
+            tags: ["Python", "Google ML Kit", "OCR", "Regex", "ETL", "CSV/PDF"],
             githubUrl: "#",
         },
         {
-            title: "AI Chat Assistant",
-            description: "Asistente virtual potenciado por LLMs para soporte técnico automatizado. Implementa RAG para contexto específico.",
-            tags: ["Python", "LangChain", "OpenAI", "Next.js"],
-            githubUrl: "https://github.com/BartClo/ProyectoIngSoftware",
-            demoUrl: "https://chatbot-rag-uss.vercel.app/",
-            imageUrl: "/images/ia-rag-login.jpg"
+            title: "Sistema RAG — Consultas Inteligentes sobre Documentos",
+            description: "Sistema Retrieval-Augmented Generation (RAG) para consultas inteligentes sobre documentos. Integra modelos de lenguaje (LLMs) para respuestas contextualizadas, búsqueda semántica mediante embeddings sobre base de datos vectorial, y prompt engineering avanzado.",
+            tags: ["Python", "LLM APIs", "Embeddings", "Vector DB", "Prompt Engineering", "Git/GitHub"],
+            githubUrl: "https://github.com/BartClo",
+        },
+        {
+            title: "Análisis Predictivo Fórmula 1 — Clasificación ML",
+            description: "Pipeline reproducible de machine learning para predicción de rendimiento de pilotos. Incluye limpieza de datos, ingeniería de features, clasificación supervisada y evaluación con métricas F1-score, precision y recall. Visualizaciones analíticas para comunicación de resultados.",
+            tags: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Google Colab", "ML"],
+            githubUrl: "#",
         }
     ];
 
