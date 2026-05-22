@@ -128,7 +128,7 @@ export const Skills = () => {
             <div className="absolute right-0 bottom-0 w-32 h-96 bg-gradient-to-l from-neutral-950/80 to-transparent pointer-events-none" />
 
             {/* Contenido principal */}
-            <div className="max-w-6xl mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}

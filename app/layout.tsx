@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import AuroraBackground from "@/components/AuroraBackground";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <body className={`${inter.className} bg-background text-foreground antialiased min-h-screen overflow-x-hidden`}>
-        <AuroraBackground />
         <div className="relative z-10">
           {children}
         </div>
