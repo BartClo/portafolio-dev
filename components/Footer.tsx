@@ -1,4 +1,7 @@
+"use client";
+
 import { Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
     return (
@@ -11,16 +14,39 @@ export const Footer = () => {
                 </div>
 
                 <div className="flex gap-6">
-                    <a href="#" className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all hover:scale-110">
+                    <motion.a
+                        href="#"
+                        whileHover={{ y: -5, color: "#fff", borderColor: "#52525b" }}
+                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors"
+                    >
                         <Linkedin size={24} />
-                    </a>
-                    <a href="#" className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all hover:scale-110">
+                    </motion.a>
+                    <motion.a
+                        href="#"
+                        whileHover={{ y: -5, color: "#fff", borderColor: "#52525b" }}
+                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors"
+                    >
                         <Github size={24} />
-                    </a>
-                    <a href="mailto:tuemail@ejemplo.com" className="px-8 py-4 rounded-full bg-cyan-600 text-white font-bold hover:bg-cyan-500 transition-all hover:scale-105 shadow-lg shadow-cyan-900/20 flex items-center gap-2">
+                    </motion.a>
+                    <motion.a
+                        href="mailto:tuemail@ejemplo.com"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        animate={{
+                            boxShadow: ["0px 0px 0px rgba(8,145,178,0)", "0px 0px 20px rgba(8,145,178,0.5)", "0px 0px 0px rgba(8,145,178,0)"]
+                        }}
+                        transition={{
+                            boxShadow: {
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }
+                        }}
+                        className="px-8 py-4 rounded-full bg-cyan-600 text-white font-bold flex items-center gap-2"
+                    >
                         <Mail size={20} />
                         Enviar Correo
-                    </a>
+                    </motion.a>
                 </div>
 
             </div>

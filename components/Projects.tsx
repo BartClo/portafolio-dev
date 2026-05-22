@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -32,14 +33,36 @@ export const Projects = () => {
         }
     ];
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
         <section className="py-24 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4">
+                <motion.h2
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                >
                     Ingeniería Aplicada & <br /> <span className="text-zinc-500">Proyectos Destacados</span>
-                </h2>
+                </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {projects.map((project, index) => (
                         <ProjectCard
                             key={index}
@@ -50,7 +73,7 @@ export const Projects = () => {
                             onMouseLeave={() => setHoveredIndex(null)}
                         />
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
