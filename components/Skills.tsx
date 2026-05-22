@@ -134,7 +134,7 @@ export const Skills = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
                 >
                     Habilidades <span className="text-zinc-500">Técnicas</span>
                 </motion.h2>

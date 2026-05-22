@@ -6,7 +6,6 @@ import { Education } from "@/components/Education";
 import { Certifications } from "@/components/Certifications";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
-import { EngineeringToolkit } from "@/components/EngineeringToolkit";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Skills />
       <Education />
       <Certifications />
-      <EngineeringToolkit />
       <About />
       <Footer />
     </main>

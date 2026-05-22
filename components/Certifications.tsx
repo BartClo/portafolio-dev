@@ -86,13 +86,13 @@ export const Certifications = () => {
 
     return (
         <section className="py-20 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50">
-            <div className="max-w-6xl mx-auto">
-                <motion.h2
+            <div className="max-w-7xl mx-auto">
+            <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
                 >
                     Certificaciones <span className="text-zinc-500">& Credenciales</span>
                 </motion.h2>
