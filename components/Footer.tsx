@@ -15,21 +15,25 @@ export const Footer = () => {
 
                 <div className="flex gap-6">
                     <motion.a
-                        href="#"
+                        href="https://www.linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ y: -5, color: "#fff", borderColor: "#52525b" }}
-                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors"
+                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors hover:text-blue-400"
                     >
                         <Linkedin size={24} />
                     </motion.a>
                     <motion.a
-                        href="#"
+                        href="https://github.com/BartClo"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ y: -5, color: "#fff", borderColor: "#52525b" }}
-                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors"
+                        className="p-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors hover:text-white"
                     >
                         <Github size={24} />
                     </motion.a>
                     <motion.a
-                        href="mailto:tuemail@ejemplo.com"
+                        href="mailto:marcelomunozp09@gmail.com"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         animate={{

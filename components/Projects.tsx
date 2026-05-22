@@ -14,13 +14,13 @@ export const Projects = () => {
             title: "PulseTrack — Pipeline ETL de Datos Clínicos",
             description: "Pipeline automatizado de extracción ETL sobre imágenes no estructuradas de tensiómetros. Transforma fotografías en registros clínicos estructurados (SYS, DIA, PUL) mediante reconocimiento óptico de caracteres con algoritmos de parseo multicapa y corrección de ruido.",
             tags: ["Python", "Google ML Kit", "OCR", "Regex", "ETL", "CSV/PDF"],
-            githubUrl: "#",
+            githubUrl: "https://github.com/BartClo/pulse_track",
         },
         {
             title: "Sistema RAG — Consultas Inteligentes sobre Documentos",
             description: "Sistema Retrieval-Augmented Generation (RAG) para consultas inteligentes sobre documentos. Integra modelos de lenguaje (LLMs) para respuestas contextualizadas, búsqueda semántica mediante embeddings sobre base de datos vectorial, y prompt engineering avanzado.",
             tags: ["Python", "LLM APIs", "Embeddings", "Vector DB", "Prompt Engineering", "Git/GitHub"],
-            githubUrl: "https://github.com/BartClo",
+            githubUrl: "https://github.com/BartClo/ProyectoIngSoftware",
         },
         {
             title: "Análisis Predictivo Fórmula 1 — Clasificación ML",
