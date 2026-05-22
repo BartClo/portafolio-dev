@@ -21,13 +21,14 @@ export const Hero = () => {
                     </h1>
 
                     <h2 className="text-xl md:text-2xl text-zinc-400 font-medium">
-                        Ingeniero Civil Informático en formación <br />
-                        <span className="text-zinc-500">Enfoque en arquitectura de software, datos y soluciones reales</span>
+                        Ingeniero Civil Informático | Año 5° (Último) <br />
+                        <span className="text-zinc-500">Analytics Engineering, Data Engineering & IA Generativa</span>
                     </h2>
 
                     <p className="max-w-lg text-zinc-400 leading-relaxed">
-                        Explorando los límites de la ingeniería moderna con código limpio, escalable y eficiente.
-                        Actualmente enfocado en sistemas distribuidos y aplicaciones potenciadas por IA.
+                        Constructor de pipelines ETL escalables, dashboards BI corporativos y sistemas potenciados por IA Generativa. 
+                        Experiencia real en Salfa S.A. con Power BI, Python y modelado de datos. Apasionado por transformar datos crudos 
+                        en activos estratégicos y explorar aplicaciones prácticas de LLMs.
                     </p>
 
                     <div className="flex gap-4 pt-4">
