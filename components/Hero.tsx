@@ -1,9 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Hero = () => {
+    const [isContactOpen, setIsContactOpen] = useState(false);
+
     const timeline = [
         {
             year: "2022",
@@ -34,6 +38,27 @@ export const Hero = () => {
             opacity: 1,
             transition: { staggerChildren: 0.2, delayChildren: 0.3 }
         }
+    };
+
+    useEffect(() => {
+        if (!isContactOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsContactOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isContactOpen]);
+
+    const scrollToProjects = () => {
+        document.getElementById("proyectos-destacados")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
     };
 
     const itemVariants = {
@@ -82,10 +107,18 @@ export const Hero = () => {
                     </p>
 
                     <div className="flex gap-4 pt-4">
-                        <button className="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-300 text-slate-950 font-bold hover:from-cyan-200 hover:to-blue-200 transition-colors">
+                        <button
+                            type="button"
+                            onClick={scrollToProjects}
+                            className="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-300 text-slate-950 font-bold hover:from-cyan-200 hover:to-blue-200 transition-colors"
+                        >
                             Ver Proyectos
                         </button>
-                        <button className="px-6 py-3 rounded-lg border border-cyan-400/30 text-slate-200 hover:bg-cyan-500/10 hover:border-cyan-300/50 transition-colors">
+                        <button
+                            type="button"
+                            onClick={() => setIsContactOpen(true)}
+                            className="px-6 py-3 rounded-lg border border-cyan-400/30 text-slate-200 hover:bg-cyan-500/10 hover:border-cyan-300/50 transition-colors"
+                        >
                             Contactar
                         </button>
                     </div>
@@ -142,6 +175,97 @@ export const Hero = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <AnimatePresence>
+                {isContactOpen && (
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-4 backdrop-blur-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsContactOpen(false)}
+                    >
+                        <motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="contact-dialog-title"
+                            initial={{ opacity: 0, y: 16, scale: 0.96 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 12, scale: 0.98 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={(event) => event.stopPropagation()}
+                            className="w-full max-w-md rounded-2xl border border-slate-700/50 bg-slate-900/95 p-6 shadow-[0_30px_80px_-30px_rgba(2,8,23,0.95)]"
+                        >
+                            <div className="mb-5 flex items-start justify-between gap-4">
+                                <div>
+                                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/80">
+                                        Contacto
+                                    </p>
+                                    <h3 id="contact-dialog-title" className="mt-2 text-2xl font-bold text-slate-50">
+                                        Elegí un canal
+                                    </h3>
+                                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                                        Te dirijo directo a LinkedIn, GitHub o correo para que no tengas que buscar nada.
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setIsContactOpen(false)}
+                                    className="rounded-full border border-slate-700/60 p-2 text-slate-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-200"
+                                    aria-label="Cerrar contacto"
+                                >
+                                    <X size={18} />
+                                </button>
+                            </div>
+
+                            <div className="grid gap-3">
+                                <a
+                                    href="https://www.linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 rounded-xl border border-slate-700/50 bg-slate-950/60 px-4 py-3 text-slate-200 transition-all hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-white"
+                                >
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300">
+                                        <Linkedin size={20} />
+                                    </span>
+                                    <span className="flex flex-col">
+                                        <span className="font-semibold">LinkedIn</span>
+                                        <span className="text-xs text-slate-400">Perfil profesional</span>
+                                    </span>
+                                </a>
+
+                                <a
+                                    href="https://github.com/BartClo"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 rounded-xl border border-slate-700/50 bg-slate-950/60 px-4 py-3 text-slate-200 transition-all hover:border-slate-500/50 hover:bg-slate-800/70 hover:text-white"
+                                >
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-500/15 text-slate-200">
+                                        <Github size={20} />
+                                    </span>
+                                    <span className="flex flex-col">
+                                        <span className="font-semibold">GitHub</span>
+                                        <span className="text-xs text-slate-400">Repos y proyectos</span>
+                                    </span>
+                                </a>
+
+                                <a
+                                    href="mailto:marcelomunozp09@gmail.com"
+                                    className="flex items-center gap-3 rounded-xl border border-slate-700/50 bg-slate-950/60 px-4 py-3 text-slate-200 transition-all hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-white"
+                                >
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/15 text-cyan-200">
+                                        <Mail size={20} />
+                                    </span>
+                                    <span className="flex flex-col">
+                                        <span className="font-semibold">Correo</span>
+                                        <span className="text-xs text-slate-400">Respuesta directa</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
