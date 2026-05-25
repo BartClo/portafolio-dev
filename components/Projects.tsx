@@ -27,6 +27,7 @@ export const Projects = () => {
             description: "Pipeline automatizado de extracción ETL sobre imágenes no estructuradas de tensiómetros. Transforma fotografías en registros clínicos estructurados (SYS, DIA, PUL) mediante reconocimiento óptico de caracteres con algoritmos de parseo multicapa y corrección de ruido.",
             tags: ["Python", "Google ML Kit", "OCR", "Regex", "ETL", "CSV/PDF"],
             githubUrl: "https://github.com/BartClo/pulse_track",
+            imageUrl: "/images/pulsetrack.report.jpg",
         },
         {
             title: "Sistema RAG — Consultas Inteligentes sobre Documentos",
@@ -40,6 +41,7 @@ export const Projects = () => {
             description: "Pipeline reproducible de machine learning para predicción de rendimiento de pilotos. Incluye limpieza de datos, ingeniería de features, clasificación supervisada y evaluación con métricas F1-score, precision y recall. Visualizaciones analíticas para comunicación de resultados.",
             tags: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Google Colab", "ML"],
             githubUrl: "#",
+            imageUrl: "/images/f1project.jpg",
         }
     ];
 
