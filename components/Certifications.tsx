@@ -85,16 +85,16 @@ export const Certifications = () => {
     };
 
     return (
-        <section className="py-20 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50">
+        <section className="py-20 px-4 md:px-10 bg-slate-950/55 backdrop-blur-md border-t border-slate-700/30">
             <div className="max-w-7xl mx-auto">
             <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-slate-50 mb-12 border-l-4 border-cyan-400 pl-4"
                 >
-                    Certificaciones <span className="text-zinc-500">& Credenciales</span>
+                    Certificaciones <span className="text-cyan-200/60">& Credenciales</span>
                 </motion.h2>
 
                 <motion.div
@@ -109,7 +109,7 @@ export const Certifications = () => {
                             key={index}
                             variants={certVariants}
                             whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(6, 182, 212, 0.2)" }}
-                            className="group relative p-5 rounded-lg border border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 to-zinc-900/30 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden"
+                            className="group relative p-5 rounded-xl border border-slate-700/40 bg-gradient-to-br from-slate-900/70 to-slate-900/35 hover:border-cyan-400/40 transition-all duration-300 overflow-hidden shadow-[0_8px_30px_-18px_rgba(15,23,42,0.9)]"
                         >
                             {/* Gradient background on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -123,18 +123,18 @@ export const Certifications = () => {
                                             {cert.initials}
                                         </span>
                                     </div>
-                                    <span className="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2 py-1 rounded-full">
+                                    <span className="text-xs font-bold text-cyan-200 bg-cyan-500/10 px-2 py-1 rounded-full">
                                         {cert.year}
                                     </span>
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-sm font-bold text-white mb-2 line-clamp-3 group-hover:text-cyan-300 transition-colors">
+                                <h3 className="text-sm font-bold text-slate-50 mb-2 line-clamp-3 group-hover:text-cyan-200 transition-colors">
                                     {cert.title}
                                 </h3>
 
                                 {/* Issuer */}
-                                <p className="text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                                <p className="text-xs text-slate-300 group-hover:text-slate-200 transition-colors">
                                     {cert.issuer}
                                 </p>
 

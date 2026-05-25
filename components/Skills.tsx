@@ -2,6 +2,23 @@
 
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import {
+    siAngular,
+    siDocker,
+    siDjango,
+    siGit,
+    siGooglecloud,
+    siJupyter,
+    siLinux,
+    siNumpy,
+    siPandas,
+    siPostgresql,
+    siOpenjdk,
+    siPython,
+    siReact,
+    siScikitlearn,
+    siVscodium,
+} from "simple-icons";
 
 interface SkillCategory {
     title: string;
@@ -11,28 +28,31 @@ interface SkillCategory {
 
 interface TechLogo {
     name: string;
-    url: string;
+    icon: {
+        title: string;
+        slug: string;
+        svg: string;
+        hex: string;
+    };
 }
 
 export const Skills = () => {
-    // Tech logos desde CDN Devicon
     const techLogos: TechLogo[] = [
-        { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "PostgreSQL", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-        { name: "Docker", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "AWS", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
-        { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-        { name: "Angular", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-        { name: "Django", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
-        { name: "Java", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "Linux", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-        { name: "Pandas", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
-        { name: "Google Cloud", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-        { name: "VS Code", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-        { name: "Jupyter", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
-        { name: "NumPy", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
-        { name: "Scikit-learn", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+        { name: "Python", icon: siPython },
+        { name: "PostgreSQL", icon: siPostgresql },
+        { name: "Docker", icon: siDocker },
+        { name: "Git", icon: siGit },
+        { name: "React", icon: siReact },
+        { name: "Angular", icon: siAngular },
+        { name: "Django", icon: siDjango },
+        { name: "Java", icon: siOpenjdk },
+        { name: "Linux", icon: siLinux },
+        { name: "Pandas", icon: siPandas },
+        { name: "Google Cloud", icon: siGooglecloud },
+        { name: "VS Code", icon: siVscodium },
+        { name: "Jupyter", icon: siJupyter },
+        { name: "NumPy", icon: siNumpy },
+        { name: "Scikit-learn", icon: siScikitlearn },
     ];
 
     // Duplicar logos para efecto infinito suave
@@ -94,14 +114,14 @@ export const Skills = () => {
     };
 
     return (
-        <section className="py-20 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50 relative">
+        <section className="py-20 px-4 md:px-10 bg-slate-950/58 backdrop-blur-md border-t border-slate-700/30 relative">
             {/* Carrusel Infinito de Logos - Fondo (solo en área de contenido) */}
             <div className="absolute left-0 right-0 bottom-0 h-96 overflow-hidden pointer-events-none opacity-20">
                 <motion.div
-                    className="flex gap-8 whitespace-nowrap"
+                    className="flex gap-6 whitespace-nowrap will-change-transform"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{
-                        duration: 40,
+                        duration: 48,
                         repeat: Infinity,
                         ease: "linear",
                         repeatType: "loop"
@@ -110,14 +130,22 @@ export const Skills = () => {
                     {duplicatedLogos.map((tech, idx) => (
                         <div
                             key={idx}
-                            className="flex-shrink-0 flex items-center justify-center w-24 h-24 rounded-lg bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 p-2"
+                            aria-label={tech.name}
+                            className="flex-shrink-0 flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-zinc-900/55 border border-zinc-700/60 p-2 shadow-[0_0_24px_-12px_rgba(6,182,212,0.35)]"
                         >
-                            <img 
-                                src={tech.url} 
-                                alt={tech.name}
-                                className="w-full h-full object-contain"
-                                loading="lazy"
-                            />
+                            <div
+                                className="flex h-12 w-12 items-center justify-center rounded-xl shadow-lg"
+                                style={{ color: `#${tech.icon.hex}` }}
+                                aria-hidden="true"
+                            >
+                                <span
+                                    className="h-11 w-11"
+                                    dangerouslySetInnerHTML={{ __html: tech.icon.svg }}
+                                />
+                            </div>
+                            <span className="mt-2 text-[10px] font-medium text-zinc-300 text-center leading-tight">
+                                {tech.name}
+                            </span>
                         </div>
                     ))}
                 </motion.div>
@@ -134,9 +162,9 @@ export const Skills = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-slate-50 mb-12 border-l-4 border-cyan-400 pl-4"
                 >
-                    Habilidades <span className="text-zinc-500">Técnicas</span>
+                    Habilidades <span className="text-cyan-200/60">Técnicas</span>
                 </motion.h2>
 
                 <motion.div
@@ -150,14 +178,14 @@ export const Skills = () => {
                         <motion.div
                             key={idx}
                             variants={categoryVariants}
-                            className="group relative p-6 rounded-lg border border-zinc-800/50 bg-zinc-900/30 hover:bg-zinc-900/50 hover:border-cyan-500/30 transition-all duration-300 overflow-hidden"
+                            className="group relative p-6 rounded-xl border border-slate-700/40 bg-slate-900/45 hover:bg-slate-900/70 hover:border-cyan-400/30 transition-all duration-300 overflow-hidden shadow-[0_8px_30px_-18px_rgba(15,23,42,0.9)]"
                         >
                             {/* Accent bar on hover - dentro de la tarjeta */}
                             <div className="absolute top-0 left-0 w-0 group-hover:w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300" />
 
                             {/* Category Title */}
-                            <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">
-                                <span className="inline-block w-2 h-2 bg-cyan-500 rounded-full"></span>
+                            <h3 className="text-lg font-bold text-cyan-300 mb-4 flex items-center gap-2">
+                                <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full"></span>
                                 {category.title}
                             </h3>
 
@@ -174,7 +202,7 @@ export const Skills = () => {
                                         key={skillIdx}
                                         variants={skillVariants}
                                         whileHover={{ scale: 1.08, backgroundColor: "rgba(6, 182, 212, 0.2)" }}
-                                        className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 cursor-default transition-all"
+                                        className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-400/25 text-cyan-100 cursor-default transition-all"
                                     >
                                         {skill}
                                     </motion.span>

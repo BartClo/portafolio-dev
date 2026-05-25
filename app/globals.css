@@ -32,25 +32,25 @@
   We will just default the variables to these values.
 */
 :root {
-  --background: 240 10% 3.9%;
+  --background: 222 38% 8%;
   --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
+  --card: 222 28% 10%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
+  --popover: 222 28% 10%;
   --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
+  --secondary: 222 22% 16%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
+  --muted: 222 22% 16%;
+  --muted-foreground: 220 10% 68%;
+  --accent: 222 22% 16%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --border: 221 20% 20%;
+  --input: 221 20% 20%;
+  --ring: 188 85% 64%;
   --radius: 0.5rem;
 }
 
@@ -62,6 +62,10 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    background-image:
+      radial-gradient(circle at top left, rgba(34, 211, 238, 0.12) 0%, rgba(34, 211, 238, 0) 28%),
+      radial-gradient(circle at top right, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0) 30%),
+      linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(2, 6, 23, 1) 45%, rgba(2, 6, 23, 1) 100%);
   }
 }
 
@@ -94,4 +98,58 @@
 
 .radial-gradient-bg {
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+@keyframes background-drift-cyan {
+  0%,
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
+
+@keyframes background-drift-blue {
+  0%,
+  100% {
+    transform: translate3d(3%, 2%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-4%, -3%, 0) scale(1.1);
+  }
+}
+
+.animated-background__orb {
+  position: absolute;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.animated-background__orb--cyan {
+  top: -10rem;
+  left: -10rem;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, rgba(34, 211, 238, 0) 68%);
+  animation: background-drift-cyan 24s ease-in-out infinite;
+}
+
+.animated-background__orb--blue {
+  right: -12rem;
+  bottom: -14rem;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.24) 0%, rgba(59, 130, 246, 0) 68%);
+  animation: background-drift-blue 28s ease-in-out infinite;
+}
+
+.animated-background__orb--violet {
+  inset: 20% auto auto 50%;
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: background-drift-cyan 32s ease-in-out infinite;
 }

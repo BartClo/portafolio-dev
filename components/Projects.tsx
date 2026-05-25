@@ -41,16 +41,16 @@ export const Projects = () => {
     };
 
     return (
-        <section className="py-24 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50">
+        <section className="py-24 px-4 md:px-10 bg-slate-950/62 backdrop-blur-md border-t border-slate-700/30">
             <div className="max-w-7xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-slate-50 mb-12 border-l-4 border-cyan-400 pl-4"
                 >
-                    Ingeniería Aplicada & <br /> <span className="text-zinc-500">Proyectos Destacados</span>
+                    Ingeniería Aplicada & <br /> <span className="text-cyan-200/60">Proyectos Destacados</span>
                 </motion.h2>
 
                 <motion.div

@@ -42,9 +42,10 @@ export const Hero = () => {
     };
 
     return (
-        <section className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden pt-20 pb-20 px-4 md:px-10">
+        <section className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden pt-20 pb-20 px-4 md:px-10 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-transparent">
             {/* Background Effect */}
             <div className="absolute inset-0 w-full h-full radial-gradient-bg pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cyan-500/10 to-transparent pointer-events-none" />
 
             <div className="max-w-7xl w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Left Side */}
@@ -54,29 +55,37 @@ export const Hero = () => {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-start space-y-8"
                 >
-                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-cyan-500/30 shadow-2xl ring-4 ring-cyan-500/10">
-                        <Image src="/images/formal_hap.jpg" alt="Marcelo Muñoz" fill className="object-cover" />
+                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-cyan-400/30 shadow-2xl ring-4 ring-cyan-400/10">
+                        <Image
+                            src="/images/formal_hap.jpg"
+                            alt="Retrato de Marcelo Muñoz"
+                            fill
+                            priority
+                            sizes="(max-width: 768px) 8rem, 10rem"
+                            quality={85}
+                            className="object-cover"
+                        />
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
                         Hola, soy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">[Marcelo Muñoz]</span>
                     </h1>
 
-                    <h2 className="text-xl md:text-2xl text-zinc-400 font-medium">
+                    <h2 className="text-xl md:text-2xl text-slate-300 font-medium">
                         Ingeniero Civil Informático | Año 5° (Último) <br />
-                        <span className="text-zinc-500">Analytics Engineering, Data Engineering & IA Generativa</span>
+                        <span className="text-cyan-200/70">Analytics Engineering, Data Engineering & IA Generativa</span>
                     </h2>
 
-                    <p className="max-w-lg text-zinc-400 leading-relaxed">
+                    <p className="max-w-lg text-slate-300 leading-relaxed">
                         Constructor de pipelines ETL escalables, dashboards BI corporativos y sistemas potenciados por IA Generativa. 
                         Apasionado por transformar datos crudos en activos estratégicos y explorar aplicaciones prácticas de LLMs.
                     </p>
 
                     <div className="flex gap-4 pt-4">
-                        <button className="px-6 py-3 rounded-lg bg-zinc-100 text-zinc-900 font-bold hover:bg-white transition-colors">
+                        <button className="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-300 text-slate-950 font-bold hover:from-cyan-200 hover:to-blue-200 transition-colors">
                             Ver Proyectos
                         </button>
-                        <button className="px-6 py-3 rounded-lg border border-zinc-700 text-zinc-300 hover:bg-zinc-900 transition-colors">
+                        <button className="px-6 py-3 rounded-lg border border-cyan-400/30 text-slate-200 hover:bg-cyan-500/10 hover:border-cyan-300/50 transition-colors">
                             Contactar
                         </button>
                     </div>
@@ -90,7 +99,7 @@ export const Hero = () => {
                     className="relative h-full flex flex-col justify-center"
                 >
                     {/* Vertical connecting line */}
-                    <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-500 via-cyan-500 to-green-500" />
+                    <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-300 via-sky-400 to-emerald-300" />
 
                     {/* Timeline Items */}
                     <div className="space-y-12">
@@ -103,12 +112,7 @@ export const Hero = () => {
                                 {/* Dot */}
                                 <motion.div
                                     whileHover={{ scale: 1.2 }}
-                                    className="absolute left-0 top-0 w-14 h-14 rounded-full bg-gradient-to-br border-2 border-zinc-800 flex items-center justify-center cursor-pointer"
-                                    style={{
-                                        backgroundImage: `linear-gradient(to bottom right, var(--color-start), var(--color-end))`,
-                                        '--color-start': item.color.split(' ')[1],
-                                        '--color-end': item.color.split(' ')[3]
-                                    } as any}
+                                    className={`absolute left-0 top-0 w-14 h-14 rounded-full bg-gradient-to-br ${item.color} border-2 border-zinc-800 flex items-center justify-center cursor-pointer`}
                                 >
                                     <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${item.color}`} />
                                 </motion.div>

@@ -44,16 +44,16 @@ export const Experience = () => {
     };
 
     return (
-        <section className="py-20 px-4 md:px-10 bg-neutral-950/80 backdrop-blur-sm border-t border-neutral-800/50">
+        <section className="py-20 px-4 md:px-10 bg-slate-950/55 backdrop-blur-md border-t border-slate-700/30">
             <div className="max-w-7xl mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-3xl md:text-5xl font-bold text-white mb-12 border-l-4 border-cyan-500 pl-4"
+                    className="text-3xl md:text-5xl font-bold text-slate-50 mb-12 border-l-4 border-cyan-400 pl-4"
                 >
-                    Experiencia <span className="text-zinc-500">Profesional</span>
+                    Experiencia <span className="text-cyan-200/60">Profesional</span>
                 </motion.h2>
 
                 <motion.div
@@ -67,7 +67,7 @@ export const Experience = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="group relative p-6 rounded-lg border border-zinc-800/50 bg-zinc-900/30 hover:bg-zinc-900/50 hover:border-cyan-500/30 transition-all duration-300"
+                            className="group relative p-6 rounded-xl border border-slate-700/40 bg-slate-900/45 hover:bg-slate-900/70 hover:border-cyan-400/30 transition-all duration-300 shadow-[0_8px_30px_-18px_rgba(15,23,42,0.9)]"
                         >
                             {/* Top bar accent on hover */}
                             <div className="absolute top-0 left-0 w-0 group-hover:w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-t-lg transition-all duration-300" />
@@ -76,10 +76,10 @@ export const Experience = () => {
                             <div className="mb-4">
                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                                     <div>
-                                        <h3 className="text-xl font-bold text-white">{exp.company}</h3>
-                                        <p className="text-cyan-400 font-semibold">{exp.position}</p>
+                                        <h3 className="text-xl font-bold text-slate-50">{exp.company}</h3>
+                                            <p className="text-cyan-300 font-semibold">{exp.position}</p>
                                     </div>
-                                    <div className="text-sm text-zinc-500 mt-2 md:mt-0">
+                                        <div className="text-sm text-slate-400 mt-2 md:mt-0">
                                         <p>{exp.period}</p>
                                         <p>{exp.location}</p>
                                     </div>
@@ -89,8 +89,8 @@ export const Experience = () => {
                             {/* Responsibilities */}
                             <ul className="space-y-3 mb-6">
                                 {exp.responsibilities.map((resp, idx) => (
-                                    <li key={idx} className="flex gap-3 text-zinc-400 leading-relaxed">
-                                        <span className="text-cyan-500 font-bold mt-1 flex-shrink-0">▸</span>
+                                    <li key={idx} className="flex gap-3 text-slate-300 leading-relaxed">
+                                        <span className="text-cyan-300 font-bold mt-1 flex-shrink-0">▸</span>
                                         <span>{resp}</span>
                                     </li>
                                 ))}
@@ -101,7 +101,7 @@ export const Experience = () => {
                                 {exp.highlights.map((highlight, idx) => (
                                     <span
                                         key={idx}
-                                        className="px-3 py-1 text-xs font-semibold rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/50 transition-all"
+                                        className="px-3 py-1 text-xs font-semibold rounded-full bg-cyan-500/10 border border-cyan-400/25 text-cyan-200 group-hover:bg-cyan-500/20 group-hover:border-cyan-400/40 transition-all"
                                     >
                                         {highlight}
                                     </span>
