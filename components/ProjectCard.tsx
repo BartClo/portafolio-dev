@@ -10,6 +10,7 @@ interface ProjectCardProps {
     description: string;
     tags: string[];
     imageUrl?: string;
+    videoUrl?: string;
     githubUrl?: string;
     demoUrl?: string;
     isHovered?: boolean;
@@ -23,6 +24,7 @@ export const ProjectCard = ({
     description,
     tags,
     imageUrl,
+    videoUrl,
     githubUrl,
     demoUrl,
     isHovered,
@@ -30,6 +32,9 @@ export const ProjectCard = ({
     onMouseEnter,
     onMouseLeave
 }: ProjectCardProps) => {
+    const isAnimatedPreview = Boolean(imageUrl?.includes("image.thum.io"));
+    const hasVideoPreview = Boolean(videoUrl);
+
     return (
         <motion.div
             variants={{
@@ -50,7 +55,17 @@ export const ProjectCard = ({
         >
             {/* Image Preview Container */}
             <div className="w-full h-48 bg-slate-900 relative overflow-hidden">
-                {imageUrl ? (
+                {videoUrl ? (
+                    <video
+                        className="h-full w-full object-cover"
+                        src={videoUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                    />
+                ) : imageUrl ? (
                     <motion.div
                         className="w-full h-full relative"
                         whileHover={{ scale: 1.05 }}
@@ -62,6 +77,7 @@ export const ProjectCard = ({
                             fill
                             sizes="(max-width: 768px) 100vw, 33vw"
                             quality={82}
+                            unoptimized={isAnimatedPreview}
                             className="object-cover transition-opacity duration-500"
                         />
                         {/* Overlay Gradient on Hover */}
@@ -72,6 +88,12 @@ export const ProjectCard = ({
                         <span className="text-4xl opacity-10 font-mono tracking-widest text-cyan-100 group-hover:opacity-20 transition-opacity duration-500">
                             PREVIEW
                         </span>
+                    </div>
+                )}
+
+                {(hasVideoPreview || isAnimatedPreview) && (
+                    <div className="absolute left-4 top-4 rounded-full border border-cyan-400/25 bg-slate-950/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-100 backdrop-blur-sm">
+                        Preview
                     </div>
                 )}
             </div>
