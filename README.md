@@ -32,10 +32,6 @@ Este portafolio está construido con tecnologías modernas:
 - **LinkedIn** - [linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a](https://www.linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a/)
 - **GitHub** - [github.com/BartClo](https://github.com/BartClo)
 
-##  Sobre Este Proyecto
-
-Este portafolio es más que un sitio web estático. Refleja mi pasión por el desarrollo frontend moderno, la atención al detalle en UX/UI y la capacidad de crear experiencias digitales impactantes.
-
 ---
 
 © 2026 - Mi Portafolio Profesional. Todos los derechos reservados.
