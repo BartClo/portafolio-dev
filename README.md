@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mi Portafolio Profesional
 
-## Getting Started
+Bienvenido a mi portafolio en línea. Este sitio es una vitrina de mis proyectos, experiencia y habilidades como desarrollador. Diseñado con tecnologías modernas para ofrecer una experiencia fluida y visual.
 
-First, run the development server:
+##  Características Principales
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Hero Section Dinámico** - Presentación inicial con animaciones atractivas
+- **Experiencia Profesional** - Detalle de roles y contribuciones previas
+- **Educación & Certificaciones** - Formación académica y cursos relevantes
+- **Cartera de Proyectos** - Showcase de trabajos destacados con descripciones
+- **Stack de Tecnologías** - Visualización interactiva de tecnologías dominadas
+- **Diseño Responsivo** - Optimizado para desktop, tablet y mobile
+- **Animaciones Fluidas** - Transiciones y efectos visuales profesionales
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Stack Tecnológico
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este portafolio está construido con tecnologías modernas:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **[Next.js 16](https://nextjs.org)** - Framework React con SSR y optimización
+- **React 19** - Librería UI con hooks y componentes funcionales
+- **TypeScript** - Type safety y mejor DX
+- **[Tailwind CSS](https://tailwindcss.com)** - Utilidades CSS modernas
+- **[Framer Motion](https://www.framer.com/motion/)** - Animaciones declarativas
+- **tsParticles** - Efectos de partículas interactivas
+- **Lucide React** - Iconografía moderna
 
-## Learn More
+## 📬 Contacto
 
-To learn more about Next.js, take a look at the following resources:
+¿Interesado en colaborar? Me encantaría saber de ti:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Email** - [marcelomunozp09@gmail.com](mailto:marcelomunozp09@gmail.com)
+- **LinkedIn** - [linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a](https://www.linkedin.com/in/marcelo-mu%C3%B1oz-pe%C3%B1a/)
+- **GitHub** - [github.com/BartClo](https://github.com/BartClo)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  Sobre Este Proyecto
 
-## Deploy on Vercel
+Este portafolio es más que un sitio web estático. Refleja mi pasión por el desarrollo frontend moderno, la atención al detalle en UX/UI y la capacidad de crear experiencias digitales impactantes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 - Mi Portafolio Profesional. Todos los derechos reservados.
